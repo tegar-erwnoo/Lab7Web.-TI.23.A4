@@ -217,3 +217,125 @@ Refresh kembali browser, sehingga akan ditampilkan hasilnya.
 19. Membuat Tampilan Detail Artikel
 Tampilan pada saat judul berita di klik maka akan diarahkan ke halaman yang berbeda.
 Tambahkan fungsi baru pada Controller Artikel dengan nama **view**().
+
+![image](https://github.com/user-attachments/assets/694b677e-32b6-485e-bf99-531bbeda5ae1)
+
+20. Membuat View Detail
+Buat view baru untuk halaman detail dengan nama app/views/artikel/detail.php.
+
+![image](https://github.com/user-attachments/assets/bc4c446e-1422-4bc3-a27a-68247fed4031)
+
+21. Membuat Routing untuk artikel detail
+Buka Kembali file **app/config/Routes.php**, kemudian tambahkan routing untuk artikel detail.
+
+![image](https://github.com/user-attachments/assets/96a83682-0286-4a77-ab61-74fd887711eb)
+
+![image](https://github.com/user-attachments/assets/960ded60-038f-4163-917b-e92d9c3c165a)
+
+22. Membuat Menu Admin
+Menu admin adalah untuk proses CRUD data artikel. Buat method baru pada Controller
+Artikel dengan nama admin_index().
+
+![image](https://github.com/user-attachments/assets/ddf0aa58-10bd-4a2a-afc3-a5cb00e770e5)
+
+Selanjutnya buat view untuk tampilan admin dengan nama **admin_index.php**
+
+![Screenshot 2025-03-23 135513](https://github.com/user-attachments/assets/7a5e3ccf-89eb-4699-88a3-36317d84c097)
+
+![Screenshot 2025-03-23 135534](https://github.com/user-attachments/assets/1a872862-e42b-4843-a3c1-443e099ffd8d)
+
+![Screenshot 2025-03-23 135750](https://github.com/user-attachments/assets/bd54a369-8ce0-4851-bdc2-5d679efaf666)
+
+![Screenshot 2025-03-23 135806](https://github.com/user-attachments/assets/4af20293-7339-4195-8d14-06a92594ddc6)
+
+Tambahkan routing untuk menu admin seperti berikut:
+
+![image](https://github.com/user-attachments/assets/03d240eb-467b-4508-a385-7051320b167f)
+
+Akses menu admin dengan url http://localhost:8080/admin/artikel
+
+![Screenshot 2025-03-23 140106](https://github.com/user-attachments/assets/a29dda68-4955-46d5-952d-79e928701737)
+
+23. Menambah Data Artikel
+Tambahkan fungsi/method baru pada Controller Artikel dengan nama add().
+
+![image](https://github.com/user-attachments/assets/021a3384-b68b-4b3a-b8ac-4c670e476005)
+
+Kemudian buat view untuk form tambah dengan nama **form_add.php**
+
+![Screenshot 2025-03-23 140417](https://github.com/user-attachments/assets/60aa76cb-c0f2-4b26-a3b3-2728e6ca4a77)
+
+![image](https://github.com/user-attachments/assets/c4523463-46d7-4213-af73-b958cd279108)
+
+24. Mengubah Data
+Tambahkan fungsi/method baru pada Controller Artikel dengan nama **edit().**
+
+![image](https://github.com/user-attachments/assets/d8684394-4097-4550-be78-cdb8857ad6bb)
+
+Kemudian buat view untuk form tambah dengan nama **form_edit.php**
+
+![image](https://github.com/user-attachments/assets/e576d3f0-5785-4f69-9129-1945e790ad72)
+
+![image](https://github.com/user-attachments/assets/300bb226-325c-4de1-9481-aa998e38b4c7)
+
+25. Menghapus Data
+Tambahkan fungsi/method baru pada Controller Artikel dengan nama **delete()**.
+
+![image](https://github.com/user-attachments/assets/276a3ee5-2b3a-4470-8a1d-a662d94fcb91)
+
+PRAKTIKUM 3 : View Layout dan View Cell
+
+26. Membuat Layout Utama
+Buat folder **layout** di dalam **app/Views/**
+Buat file **main.php** di dalam folder **layout** dengan kode berikut:
+
+![image](https://github.com/user-attachments/assets/c3ea7d25-7e97-4c06-a53a-26b3a2acaa03)
+
+![image](https://github.com/user-attachments/assets/0051ef7e-24f6-4740-97c2-96f3ec10341f)
+
+27. Modifikasi File View
+Ubah **app/Views/home.php** agar sesuai dengan layout baru:
+
+![image](https://github.com/user-attachments/assets/e5a2fbb3-064e-470c-98b0-aafe29a15e31)
+
+28. Membuat Class View Cell
+Buat folder **Cells** di dalam **app/**
+Buat file **ArtikelTerkini.php** di dalam **app/Cells/** dengan kode berikut:
+
+![image](https://github.com/user-attachments/assets/6be0740b-4e46-430b-bab6-20207e85e7d5)
+
+29. Membuat View untuk View Cell
+Buat folder components di dalam **app/Views/**
+Buat file **artikel_terkini.php** di dalam **app/Views/components/** dengan kode berikut:
+
+![image](https://github.com/user-attachments/assets/d250d040-7b4e-4ad9-9d63-c59293f2ce9c)
+
+30. Menambahkan tanggal
+tujuanya agar mendapatkan data aertikel yang baru di ubah
+
+![image](https://github.com/user-attachments/assets/313b69f7-f993-4487-82ce-22c9817fb689)
+
+contohnya seperti ini :
+
+![image](https://github.com/user-attachments/assets/88d73672-4819-47fa-8d32-1c22c1b740a7)
+
+Apa manfaat utama dari penggunaan View Layout dalam pengembangan aplikasi?
+jawab : 
+1. Struktur yang Terorganisir
+  - Memudahkan pengaturan elemen UI dengan tata letak yang rapi dan terstruktur.
+
+2. Responsivitas yang Lebih Baik
+  - Memastikan tampilan UI menyesuaikan dengan berbagai ukuran layar dan orientasi perangkat.
+
+3. Pemeliharaan Kode yang Lebih Mudah
+  - Dengan pemisahan tata letak dan logika bisnis, perubahan UI lebih mudah dilakukan tanpa mengganggu fungsionalitas aplikasi.
+    
+4. Penggunaan Ulang Komponen
+  - Layout dapat digunakan kembali di berbagai bagian aplikasi, mengurangi redundansi kode.
+
+5. Kinerja yang Lebih Optimal
+  - Beberapa jenis layout dioptimalkan untuk performa yang lebih baik, seperti ConstraintLayout di Android yang mengurangi jumlah view hierarchy.
+
+Jelaskan perbedaan antara View Cell dan View biasa.
+jawab : 
+![image](https://github.com/user-attachments/assets/3f08a236-4d3c-4d34-ab79-991e4f154339)
