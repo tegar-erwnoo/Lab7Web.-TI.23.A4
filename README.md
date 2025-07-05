@@ -581,3 +581,24 @@ Langsung saja klik Send, maka akan mendapatkan pesan bahwa data telah berhasil d
 database.
 ![image](https://github.com/user-attachments/assets/d7543e08-5e7b-4059-933c-10d82e6fbec5)
 
+Praktikum 11: VueJS
+
+Buat Project baru dengan struktur file dan directory seperti berikut:
+│ index.html
+└───assets
+├───css
+│ style.css
+└───js
+app.js
+Menampilkan data
+File index.html
+
+File apps.js
+
+Hasil outpunya.
+![WhatsApp Image 2025-07-05 at 14 59 45_185ea996](https://github.com/user-attachments/assets/4c47c9d8-503e-4733-ab0f-11d64848f67c)
+
+Pada file index,html sispkan kode berikut sebelum table data.
+
+Hasil outpunya.
+![WhatsApp Image 2025-07-05 at 14 59 30_7eeb3bf2](https://github.com/user-attachments/assets/ae84cb84-2f68-403e-b5fa-b39ffc6b0a00)
