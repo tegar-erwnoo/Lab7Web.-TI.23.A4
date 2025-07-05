@@ -474,3 +474,110 @@ form_add.php
 form_edit.php
 ![image](https://github.com/user-attachments/assets/9e589cd5-60e7-4310-9403-1fede0558dc9)
 
+PRAKTIKUM 8: AJAX
+Membuat Model.
+Pada modul sebelumnya sudah dibuat ArtikelModel, pada modul ini kita akan
+memanfaatkan model tersebut agar dapat diakses melalui AJAX.
+Membuat AJAX Controller
+![image](https://github.com/user-attachments/assets/22c3c910-f604-494d-9bfe-aa78c60eee14)
+
+Membuat View
+![image](https://github.com/user-attachments/assets/0f6e9ef1-03dd-4f9c-b1ab-5b1b0bdf0869)
+
+PRAKTIKUM 9: Implementasi AJAX Pagination dan Search
+1. Persiapan
+* Pastikan MySQL Server sudah berjalan.
+* Buka database `lab_ci4`.
+* Pastikan tabel `artikel` dan `kategori` sudah ada dan terisi data.
+* Pastikan library jQuery sudah terpasang atau dapat diakses melalui CDN.
+  
+2. Modifikasi Controller Artikel
+Ubah method `admin_index()` di `Artikel.php` untuk mengembalikan data dalam format
+JSON jika request adalah AJAX. (Sama seperti modul sebelumnya)
+![image](https://github.com/user-attachments/assets/10467433-0ad7-4d98-b659-81ba600ce261)
+![image](https://github.com/user-attachments/assets/40e0e3db-fcb9-41fa-ae74-063df4215526)
+
+Penjelasan:
+• `$page = $this->request->getVar('page') ?? 1;`: Mendapatkan nomor
+halaman dari request. Jika tidak ada, default ke halaman 1.
+• `$builder->paginate(10, 'default', $page);`: Menerapkan pagination
+dengan nomor halaman yang diberikan.
+• `$this->request->isAJAX()`: Memeriksa apakah request yang datang adalah
+AJAX.
+• Jika AJAX, kembalikan data artikel dan pager dalam format JSON.
+• Jika bukan AJAX, tampilkan view seperti biasa.
+
+3. Modifikasi View (admin_index.php)
+* Ubah view `admin_index.php` untuk menggunakan jQuery.
+* Hapus kode yang menampilkan tabel artikel dan pagination secara langsung.
+* Tambahkan elemen untuk menampilkan data artikel dan pagination dari AJAX.
+* Tambahkan kode jQuery untuk melakukan request AJAX.
+![image](https://github.com/user-attachments/assets/e23522af-0ddd-4fbe-b134-f6fce0917d93)
+
+PRAKTIKUM 10: API
+Langkah-langkah Praktikum
+Persiapan
+Periapan awal adalah mengunduh aplikasi REST Client, ada banyak aplikasi yang dapat digunakan untuk
+keperluan tersebut. Salah satunya adalah Postman. Postman – Merupakan aplikasi yang berfungsi
+sebagai REST Client, digunakan untuk testing REST API. Unduh apliasi Postman dari tautan berikut:
+https://www.postman.com/downloads/
+Membuat Model.
+Pada modul sebelumnya sudah dibuat ArtikelModel, pada modul ini kita akan memanfaatkan model
+tersebut agar dapat diakses melalui API.
+Membuat REST Controller
+Pada tahap ini, kita akan membuat file REST Controller yang berisi fungsi untuk menampilkan,
+menambah, mengubah dan menghapus data. Masuklah ke direktori app\Controllers dan buatlah file
+baru bernama Post.php. Kemudian, salin kode di bawah ini ke dalam file tersebut:
+![image](https://github.com/user-attachments/assets/94056276-d450-442e-9357-2dce2ad99ea5)
+
+Membuat Routing REST API
+Untuk mengakses REST API CodeIgniter, kita perlu mendefinisikan route-nya terlebih dulu.
+Caranya, masuklah ke direktori app/Config dan bukalah file Routes.php. Tambahkan kode
+di bawah ini:
+![image](https://github.com/user-attachments/assets/26e3a7be-5134-4348-807a-ce30fd7428e8)
+
+Testing REST API CodeIgniter
+Buka aplikasi postman dan pilih create new → HTTP Request
+![image](https://github.com/user-attachments/assets/aa519b10-985b-4433-b36d-b7fede1c6fe3)
+
+Menampilkan Semua Data
+Pilih method GET dan masukkan URL berikut:
+http://localhost:8080/post
+Lalu, klik Send. Jika hasil test menampilkan semua data artikel dari database, maka pengujian
+berhasil.
+![image](https://github.com/user-attachments/assets/70eb3e6b-8f7a-4ddb-a96e-25a2161e3a69)
+
+Menampilkan Data Spesifik
+Masih menggunakan method GET, hanya perlu menambahkan ID artikel di belakang URL
+seperti ini:
+http://localhost:8080/post/2
+Selanjutnya, klik Send. Request tersebut akan menampilkan data artikel yang memiliki ID
+nomor 2 di database.
+![image](https://github.com/user-attachments/assets/0f9a6290-c2b4-4947-ad12-a618047e4c4d)
+
+Mengubah Data
+Untuk mengubah data, silakan ganti method menjadi PUT. Kemudian, masukkan URL artikel
+yang ingin diubah. Misalnya, ingin mengubah data artikel dengan ID nomor 2, maka masukkan
+URL berikut:
+http://localhost:8080/post/2
+Selanjutnya, pilih tab Body. Kemudian, pilih x-www-form-uriencoded. Masukkan nama
+atribut tabel pada kolom KEY dan nilai data yang baru pada kolom VALUE. Kalau sudah,
+klik Send.
+![image](https://github.com/user-attachments/assets/ba9b4704-4bc4-43fa-822b-cb0ac94f69c1)
+
+Menambahkan Data
+Anda perlu menggunakan method POST untuk menambahkan data baru ke database.
+Kemudian, masukkan URL berikut:
+http://localhost:8080/post
+Pilih tab Body, lalu pilih x-www-form-uriencoded. Masukkan atribut tabel pada kolom KEY
+dan nilai data baru di kolom VALUE. Jangan lupa, klik Send.
+![image](https://github.com/user-attachments/assets/fe4efd21-1e56-4327-99cc-77108a950500)
+
+Menghapus Data
+Pilih method DELETE untuk menghapus data. Lalu, masukkan URL spesifik data mana yang
+ingin di hapus. Misalnya, ingin menghapus data nomor 4, maka URL-nya seperti ini:
+http://localhost:8080/post/7
+Langsung saja klik Send, maka akan mendapatkan pesan bahwa data telah berhasil dihapus dari
+database.
+![image](https://github.com/user-attachments/assets/d7543e08-5e7b-4059-933c-10d82e6fbec5)
+
