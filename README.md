@@ -339,3 +339,138 @@ jawab :
 Jelaskan perbedaan antara View Cell dan View biasa.
 jawab : 
 ![image](https://github.com/user-attachments/assets/3f08a236-4d3c-4d34-ab79-991e4f154339)
+
+PRAKTIKUM KE 4
+Untuk memulai membuat modul Login, yang perlu disiapkan adalah database server
+menggunakan MySQL. Pastikan MySQL Server sudah dapat dijalankan melalui XAMPP.
+![image](https://github.com/user-attachments/assets/612518c9-8902-46a3-87e8-4413f44dc013)
+
+
+Membuat Model UserMembuat View Login
+Buat direktori baru dengan nama user pada direktori app/views, kemudian buat file baru
+dengan nama login.php.
+<!DOCTYPE html>
+Selanjutnya adalah membuat Model untuk memproses data Login. Buat file baru pada direktori
+app/Models dengan nama UserModel.php
+
+Membuat View Login
+Buat direktori baru dengan nama user pada direktori app/views, kemudian buat file baru
+dengan nama login.php.
+![image](https://github.com/user-attachments/assets/d0d1e79a-3681-4943-9516-fa0c1fef7615)
+
+Membuat Database Seeder
+Database seeder digunakan untuk membuat data dummy. Untuk keperluan ujicoba modul
+login, kita perlu memasukkan data user dan password kedaalam database. Untuk itu buat
+database seeder untuk tabel user. Buka CLI, kemudian tulis perintah berikut:
+![image](https://github.com/user-attachments/assets/6a56ea2f-fd58-4012-bc5f-6e0968863d58)
+
+Uji Coba Login
+Selanjutnya buka url http://localhost:8080/user/login seperti berikut:
+![image](https://github.com/user-attachments/assets/adaa150a-ebe1-4111-8250-920a9426d7d6)
+
+Menambahkan Auth Filter
+Selanjutnya membuat filer untuk halaman admin. Buat file baru dengan nama Auth.php pada
+direktori app/Filters.
+![image](https://github.com/user-attachments/assets/ece51c7f-2598-4566-8124-6a89b10528b6)
+
+Selanjutnya buka file app/Config/Filters.php tambahkan kode berikut:
+![image](https://github.com/user-attachments/assets/f2dc718d-bf9e-4ea3-9203-39148f08e61a)
+
+Percobaan Akses Menu Admin
+Buka url dengan alamat http://localhost:8080/admin/artikel ketika alamat tersebut diakses
+maka, akan dimuculkan halaman login.
+![image](https://github.com/user-attachments/assets/4d1f91ce-0096-4823-bd93-e41a6ce750c3)
+
+Fungsi Logout
+Tambahkan method logout pada Controller User seperti berikut:
+![image](https://github.com/user-attachments/assets/2502b12b-c2d5-4d01-975b-9d568732eb57)
+
+PRAKTIKUM KE 5
+Untuk membuat pagination, buka Kembali Controller Artikel, kemudian modifikasi kode
+pada method admin_index seperti berikut.
+![image](https://github.com/user-attachments/assets/05c30a05-2fe1-4a96-9492-febee1a6d1dc)
+
+Kemudian buka file views/artikel/admin_index.php dan tambahkan kode berikut
+dibawah deklarasi tabel data.
+![image](https://github.com/user-attachments/assets/c94cdff5-70f2-41cf-86f6-205938fec002)
+
+Selanjutnya buka kembali menu daftar artikel, tambahkan data lagi untuk melihat
+hasilnya.
+
+Membuat Pencarian
+Pencarian data digunakan untuk memfilter data.
+Untuk membuat pencarian data, buka kembali Controller Artikel, pada method
+admin_index ubah kodenya seperti berikut
+![image](https://github.com/user-attachments/assets/333d5573-2bb6-48b7-a997-d49bc87282f8)
+
+Kemudian buka kembali file views/artikel/admin_index.php dan tambahkan form
+pencarian sebelum deklarasi tabel seperti berikut:
+![image](https://github.com/user-attachments/assets/a49b2229-4d84-456f-9e58-71eb15ce81c0)
+
+Selanjutnya ujicoba dengan membuka kembali halaman admin artikel, masukkan kata
+kunci tertentu pada form pencarian.
+![image](https://github.com/user-attachments/assets/f6867271-2c6e-4a4b-90aa-58a260dabf0d)
+
+PRAKTIKUM 6: Upload File Gambar
+Buka kembali Controller Artikel pada project sebelumnya, sesuaikan kode pada method
+add seperti berikut:
+![image](https://github.com/user-attachments/assets/7d7a9cc1-e932-4f29-b039-8a50dc804839)
+
+Kemudian pada file views/artikel/form_add.php tambahkan field input file seperti
+berikut.
+![image](https://github.com/user-attachments/assets/81277268-1767-4cb8-8037-69d47029c629)
+
+Ujicoba file upload dengan mengakses menu tambah artikel.
+![image](https://github.com/user-attachments/assets/0ff83109-db06-42e2-a910-3e50241b6459)
+
+PRAKTIKUM 7: Relasi Tabel dan Query Builder
+
+1. Persiapan
+Pastikan MySQL Server sudah berjalan, dan buka database `lab_ci4
+2. Membuat Tabel Kategori
+Kita akan membuat tabel baru bernama `kategori` untuk mengkategorikan artikel.
+Struktur Tabel `kategori`:
+![image](https://github.com/user-attachments/assets/bce94aee-ccb3-491c-a980-6f763669d0be)
+
+3. Mengubah Tabel Artikel
+Tambahkan foreign key `id_kategori` pada tabel `artikel` untuk membuat relasi dengan tabel
+`kategori`.
+Query untuk menambahkan foreign key:
+![image](https://github.com/user-attachments/assets/ec1e10eb-28dc-44dd-bdee-1250a6f27335)
+
+4. Membuat Model Kategori
+Buat file model baru di `app/Models` dengan nama `KategoriModel.php`:
+![image](https://github.com/user-attachments/assets/829b914f-4218-4f29-b8d6-5455bccc7a96)
+
+5. Memodifikasi Model Artikel
+Modifikasi `ArtikelModel.php` untuk mendefinisikan relasi dengan `KategoriModel`:
+![image](https://github.com/user-attachments/assets/365753cb-8f48-4f80-9f9d-1660be1528b0)
+
+6. Memodifikasi Controller Artikel
+Modifikasi `Artikel.php` untuk menggunakan model baru dan menampilkan data relasi:
+![image](https://github.com/user-attachments/assets/d125cc27-66fe-4c75-83eb-24ebbf40ac0d)
+![image](https://github.com/user-attachments/assets/ec3d75e6-880c-47e6-a100-4fc88903a5ce)
+![image](https://github.com/user-attachments/assets/fe5c1ddc-f049-4337-b718-7156a77231f4)
+![image](https://github.com/user-attachments/assets/969f0a1b-810c-478f-b89a-c678484ed8ad)
+![image](https://github.com/user-attachments/assets/37263b44-d9f2-46a2-a34e-dbfc4e623334)
+![image](https://github.com/user-attachments/assets/bcb806ef-f63e-4f4f-bbc3-95643b811837)
+![image](https://github.com/user-attachments/assets/8195da1b-c871-4d79-ab16-91d0eea6ed0f)
+![image](https://github.com/user-attachments/assets/f1d1661b-dfe5-4bc0-aab2-a7e72666f80c)
+![image](https://github.com/user-attachments/assets/36c7dff9-68ec-49de-a6fb-e46b5bcb74b7)
+![image](https://github.com/user-attachments/assets/5408a514-8185-4d49-afeb-0841224e97ac)
+![image](https://github.com/user-attachments/assets/f3744106-5010-4cb2-988e-40c37a4ec8a8)
+
+7. Memodifikasi View
+Buka folder view/artikel sesuaikan masing-masing view.
+index.php
+![image](https://github.com/user-attachments/assets/82c3e8f9-5a51-457b-bc34-3ecaf43ac5d6)
+
+admin_index.php
+![image](https://github.com/user-attachments/assets/b43481da-6c0d-4b3e-8c98-ae555e5b8f71)
+
+form_add.php
+![image](https://github.com/user-attachments/assets/2784b681-1fc1-4e48-843d-c6bbfe5715e3)
+
+form_edit.php
+![image](https://github.com/user-attachments/assets/9e589cd5-60e7-4310-9403-1fede0558dc9)
+
